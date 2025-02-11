@@ -1,0 +1,31 @@
+#include <iostream>
+#include <queue>
+#include <vector>
+
+using namespace std;
+
+void heapSort(vector<int> &arr) {
+    priority_queue<int, vector<int>, greater<int>> minHeap(arr.begin(), arr.end());
+
+    int index = 0;
+    while (!minHeap.empty()) {
+        arr[index++] = minHeap.top();
+        minHeap.pop();
+    }
+}
+
+int main() {
+    vector<int> arr = {5, 3, 8, 4, 1, 2};
+    
+    cout << "Original Array: ";
+    for (int num : arr) cout << num << " ";
+    cout << endl;
+
+    heapSort(arr);
+
+    cout << "Sorted Array: ";
+    for (int num : arr) cout << num << " ";
+    cout << endl;
+
+    return 0;
+}
